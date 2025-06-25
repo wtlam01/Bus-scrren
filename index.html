@@ -2,35 +2,47 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>巴士顯示屏</title>
+  <title>巴士顯示螢幕</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="screen">
-    <div class="top-row">
-      <span class="label">Next Stop</span>
-      <span class="time">12:45</span>
+    <!-- 上方黑底 -->
+    <div class="top-bar">
+      <div class="route-box">94</div>
+      <div class="current-stop">Busway Centre</div>
+      <div class="stop-label">Stop</div>
     </div>
 
-    <div class="route-section">
-      <div class="route-number">94</div>
-      <div class="stops">
-        <div class="stop-line">
-          <div class="dot"></div>
-          <div class="stop-name">Station Road</div>
+    <!-- 中間白底：時間線＋車站 -->
+    <div class="middle-section">
+      <div class="timeline">
+        <div class="stop">
+          <span class="time">&lt;1 min</span>
+          <div class="circle"></div>
+          <span class="name">Station Road</span>
         </div>
-        <div class="stop-line">
-          <div class="dot"></div>
-          <div class="stop-name">High Street</div>
+        <div class="stop">
+          <span class="time">2 min</span>
+          <div class="circle"></div>
+          <span class="name">Station Road</span>
+        </div>
+        <div class="stop">
+          <span class="time">3 min</span>
+          <div class="circle"></div>
+          <span class="name">High Street</span>
         </div>
       </div>
     </div>
 
-    <div class="bottom-row">
-      <div class="direction">→ eastbound</div>
-      <img src="image/logo.png" class="logo" alt="it9 logo">
+    <!-- 下方紅底：終點 -->
+    <div class="bottom-bar">
+      <span class="destination">→ High Street</span>
+      <div class="bottom-right">
+        <span class="clock">🕒 43m</span>
+        <img src="image/logo2.jpeg" alt="it9 logo" class="logo">
+      </div>
     </div>
   </div>
 </body>
 </html>
-
