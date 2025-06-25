@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.screen {
+  background-color: #d32d2f;
+  width: 440px;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.time {
+  color: #b2f0ff;
+}
+
+.route-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.route-number {
+  font-size: 32px;
+  font-weight: 700;
+  background: white;
+  color: #d32d2f;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.stops {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.stop-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #1de9b6;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #1de9b6;
+}
+
+.stop-name {
+  font-size: 16px;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.direction {
+  color: #b2f0ff;
+  font-weight: 500;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+  opacity: 1;
+}
