@@ -2,22 +2,37 @@ body {
   margin: 0;
   padding: 0;
   background: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.toggle-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.toggle-buttons button {
+  margin-left: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .screen {
-  width: 640px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 700px;
   background: white;
+  border-radius: 28px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-/* 上方黑底 */
+/* ===== Style 1 (UK) ===== */
 .top-bar {
   display: flex;
   align-items: center;
@@ -26,7 +41,6 @@ body {
   color: white;
   padding: 16px 24px;
 }
-
 .route-box {
   background: #e53935;
   font-weight: bold;
@@ -34,59 +48,48 @@ body {
   padding: 6px 14px;
   border-radius: 6px;
 }
-
 .current-stop {
   font-size: 20px;
   font-weight: bold;
   flex: 1;
   margin-left: 20px;
 }
-
 .stop-label {
   background: #e53935;
   padding: 6px 12px;
   border-radius: 6px;
   font-weight: bold;
 }
-
-/* 中間白底 */
 .middle-section {
   background: white;
   padding: 24px;
 }
-
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
 .stop {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 .time {
   width: 60px;
   font-size: 14px;
   color: #555;
   text-align: right;
 }
-
 .circle {
   width: 14px;
   height: 14px;
   border: 3px solid black;
   border-radius: 50%;
 }
-
 .name {
   font-size: 18px;
   font-weight: 500;
 }
-
-/* 下方紅底 */
 .bottom-bar {
   background: #d32d2f;
   color: white;
@@ -95,23 +98,83 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
 .destination {
   font-size: 20px;
   font-weight: bold;
 }
-
 .bottom-right {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-
 .clock {
   font-size: 16px;
 }
-
 .logo {
   height: 60px;
   width: auto;
+}
+
+/* ===== Style 2 (Japanese) ===== */
+.style2 .top-bar,
+.style2 .middle-section,
+.style2 .bottom-bar {
+  display: none;
+}
+.jp-layout {
+  display: block;
+  text-align: center;
+}
+.jp-route-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background: #c62828;
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.jp-title {
+  font-size: 52px;
+  font-weight: 700;
+  margin: 0;
+}
+.roman {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #222;
+}
+.jp-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.jp-prev,
+.jp-current,
+.jp-next-arrow {
+  padding: 16px 24px;
+  color: white;
+  font-size: 24px;
+  line-height: 1.3;
+}
+.jp-prev {
+  background: #b71c1c;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+.jp-current {
+  background: #d32f2f;
+  font-weight: bold;
+}
+.jp-next-arrow {
+  background: #b71c1c;
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+  padding-right: 36px;
+}
+.jp-logo img {
+  width: 80px;
+  margin-top: 10px;
 }
