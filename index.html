@@ -1,85 +1,42 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Bus Display</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="toggle-buttons">
-    <button onclick="setStyle('style1')">Style 1</button>
-    <button onclick="setStyle('style2')">Style 2</button>
+  <div class="button-group">
+    <button class="screen-button" onclick="showStartup()">Start-up Screen</button>
+    <button class="screen-button" onclick="showStandard()">Standard Layout</button>
   </div>
 
-  <div class="screen style1" id="busScreen">
-    <!-- Style 1 -->
-    <div class="top-bar">
-      <div class="route-box">94</div>
-      <div class="current-stop">Busway Centre</div>
-      <div class="stop-label">Stop</div>
+  <!-- Start-up Screen -->
+  <div class="startup-screen" id="startupScreen">
+    <div class="screen-box">
+      <img src="image/logo2.jpeg" alt="IT9 Logo" class="logo-img">
+      <div class="sub-text">Alpha AIR announcement system</div>
     </div>
+  </div>
 
-    <div class="middle-section">
-      <div class="timeline">
-        <div class="stop">
-          <span class="time">&lt;1 min</span>
-          <div class="circle"></div>
-          <span class="name">Station Road</span>
-        </div>
-        <div class="stop">
-          <span class="time">2 min</span>
-          <div class="circle"></div>
-          <span class="name">Station Road</span>
-        </div>
-        <div class="stop">
-          <span class="time">3 min</span>
-          <div class="circle"></div>
-          <span class="name">High Street</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="bottom-bar">
-      <span class="destination">→ High Street</span>
-      <div class="bottom-right">
-        <span class="clock">🕒 43m</span>
-        <img src="image/logo2.jpeg" alt="it9 logo" class="logo">
-      </div>
-    </div>
-
-    <!-- Style 2 layout -->
-    <div class="jp-layout" style="display:none;">
-      <div class="jp-route-number">94</div>
-      <h1 class="jp-title">High Street</h1>
-      <div class="roman">high street</div>
-      <div class="jp-line">
-        <div class="jp-prev">Station Road</div>
-        <div class="jp-current">▶ High Street</div>
-        <div class="jp-next-arrow">Busway Centre</div>
-      </div>
-      <div class="jp-logo">
-        <img src="image/logo2.jpeg" alt="IT9 logo">
-      </div>
+  <!-- Standard Layout Screen -->
+  <div class="standard-screen" id="standardScreen" style="display: none;">
+    <div class="screen-box white-bg">
+      <h1 class="welcome-text">Welcome aboard</h1>
+      <h2 class="operator-text">#Operator</h2>
+      <p class="info-text">This bus is equipped with Alpha AIR announcement system to provide information about the journey</p>
     </div>
   </div>
 
   <script>
-    function setStyle(style) {
-      const screen = document.getElementById('busScreen');
-      const jpLayout = screen.querySelector('.jp-layout');
-      const style1Parts = screen.querySelectorAll('.top-bar, .middle-section, .bottom-bar');
+    function showStartup() {
+      document.getElementById('startupScreen').style.display = 'block';
+      document.getElementById('standardScreen').style.display = 'none';
+    }
 
-      if (style === 'style2') {
-        screen.classList.remove('style1');
-        screen.classList.add('style2');
-        jpLayout.style.display = 'block';
-        style1Parts.forEach(part => part.style.display = 'none');
-      } else {
-        screen.classList.remove('style2');
-        screen.classList.add('style1');
-        jpLayout.style.display = 'none';
-        style1Parts.forEach(part => part.style.display = 'flex');
-      }
+    function showStandard() {
+      document.getElementById('startupScreen').style.display = 'none';
+      document.getElementById('standardScreen').style.display = 'block';
     }
   </script>
 </body>
