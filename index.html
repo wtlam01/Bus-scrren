@@ -9,6 +9,8 @@
   <div class="button-group">
     <button class="screen-button" onclick="showStartup()">Start-up Screen</button>
     <button class="screen-button" onclick="showStandard()">Standard Layout</button>
+    <button class="screen-button" onclick="showJourney()">Route Announcement</button>
+    <button class="screen-button" onclick="showRoute()">Route Stops</button>
   </div>
 
   <!-- Start-up Screen -->
@@ -19,7 +21,7 @@
     </div>
   </div>
 
-  <!-- Standard Layout Screen -->
+  <!-- Standard Layout -->
   <div class="standard-screen" id="standardScreen" style="display: none;">
     <div class="screen-box white-bg">
       <h1 class="welcome-text">Welcome aboard</h1>
@@ -28,15 +30,71 @@
     </div>
   </div>
 
+  <!-- Journey Announcement -->
+  <div class="journey-screen" id="journeyScreen" style="display: none;">
+    <div class="screen-box white-bg journey-box">
+      <div class="route-bar">
+        <div class="route-number">94</div>
+        <div class="route-destination">To Rushden Lakes</div>
+      </div>
+      <h1 class="welcome-text black">Welcome aboard</h1>
+      <h2 class="operator-text black">#Operator</h2>
+      <p class="info-text black">This bus is equipped with Alpha AIR announcement system to provide information about the journey</p>
+    </div>
+  </div>
+
+  <!-- Route Stops Screen -->
+  <div class="route-screen" id="routeScreen" style="display: none;">
+    <div class="screen-box white-bg route-box">
+      <div class="stops-content">
+        <div class="stops-line">
+          <div class="stop-circle"></div>
+          <div class="stop-circle"></div>
+          <div class="stop-circle"></div>
+          <div class="stop-circle"></div>
+        </div>
+        <div class="stops-list">
+          <div class="next-stop-label">Next Stop:</div>
+          <div class="stop-name big">1. The Mill</div>
+          <div class="stop-name">2. Barnwell Turn</div>
+          <div class="stop-name">3. The Fox Inn, Thorpe Waterville</div>
+          <div class="stop-name">4. Highfield Road, Thrapston</div>
+        </div>
+      </div>
+      <div class="route-footer">
+        <div class="destination-name">Rushden Lakes</div>
+        <div class="route-footer-number">94</div>
+      </div>
+    </div>
+  </div>
+
   <script>
     function showStartup() {
       document.getElementById('startupScreen').style.display = 'block';
       document.getElementById('standardScreen').style.display = 'none';
+      document.getElementById('journeyScreen').style.display = 'none';
+      document.getElementById('routeScreen').style.display = 'none';
     }
 
     function showStandard() {
       document.getElementById('startupScreen').style.display = 'none';
       document.getElementById('standardScreen').style.display = 'block';
+      document.getElementById('journeyScreen').style.display = 'none';
+      document.getElementById('routeScreen').style.display = 'none';
+    }
+
+    function showJourney() {
+      document.getElementById('startupScreen').style.display = 'none';
+      document.getElementById('standardScreen').style.display = 'none';
+      document.getElementById('journeyScreen').style.display = 'block';
+      document.getElementById('routeScreen').style.display = 'none';
+    }
+
+    function showRoute() {
+      document.getElementById('startupScreen').style.display = 'none';
+      document.getElementById('standardScreen').style.display = 'none';
+      document.getElementById('journeyScreen').style.display = 'none';
+      document.getElementById('routeScreen').style.display = 'block';
     }
   </script>
 </body>
