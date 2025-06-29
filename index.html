@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <div class="button-group">
     <button class="screen-button" onclick="showStartup()">Start-up Screen</button>
     <button class="screen-button" onclick="showStandard()">Standard Layout</button>
@@ -45,22 +46,16 @@
 
   <!-- Route Stops Screen -->
   <div class="route-screen" id="routeScreen" style="display: none;">
-    <div class="screen-box white-bg route-box">
-      <div class="stops-content">
-        <div class="stops-line">
-          <div class="stop-circle"></div>
-          <div class="stop-circle"></div>
-          <div class="stop-circle"></div>
-          <div class="stop-circle"></div>
-        </div>
-        <div class="stops-list">
-          <div class="next-stop-label">Next Stop:</div>
-          <div class="stop-name big">1. The Mill</div>
-          <div class="stop-name">2. Barnwell Turn</div>
-          <div class="stop-name">3. The Fox Inn, Thorpe Waterville</div>
-          <div class="stop-name">4. Highfield Road, Thrapston</div>
-        </div>
+    <div class="screen-box white-bg route-box top-start">
+      <div class="route-top-bar">
+        <div class="route-direction">94: Rushden Lakes → Thrapston</div>
+        <div class="clock" id="clock"></div>
       </div>
+
+      <div class="stops-content">
+        <!-- Stops will be dynamically inserted here -->
+      </div>
+
       <div class="route-footer">
         <div class="destination-name">Rushden Lakes</div>
         <div class="route-footer-number">94</div>
@@ -68,34 +63,6 @@
     </div>
   </div>
 
-  <script>
-    function showStartup() {
-      document.getElementById('startupScreen').style.display = 'block';
-      document.getElementById('standardScreen').style.display = 'none';
-      document.getElementById('journeyScreen').style.display = 'none';
-      document.getElementById('routeScreen').style.display = 'none';
-    }
-
-    function showStandard() {
-      document.getElementById('startupScreen').style.display = 'none';
-      document.getElementById('standardScreen').style.display = 'block';
-      document.getElementById('journeyScreen').style.display = 'none';
-      document.getElementById('routeScreen').style.display = 'none';
-    }
-
-    function showJourney() {
-      document.getElementById('startupScreen').style.display = 'none';
-      document.getElementById('standardScreen').style.display = 'none';
-      document.getElementById('journeyScreen').style.display = 'block';
-      document.getElementById('routeScreen').style.display = 'none';
-    }
-
-    function showRoute() {
-      document.getElementById('startupScreen').style.display = 'none';
-      document.getElementById('standardScreen').style.display = 'none';
-      document.getElementById('journeyScreen').style.display = 'none';
-      document.getElementById('routeScreen').style.display = 'block';
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

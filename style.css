@@ -40,6 +40,10 @@ body {
   padding: 20px;
 }
 
+.top-start {
+  justify-content: flex-start;
+}
+
 .startup-screen .screen-box {
   background: #e53935;
   color: white;
@@ -90,7 +94,6 @@ body {
   padding: 10px 20px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  margin: 0;
 }
 
 .route-number {
@@ -116,68 +119,76 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
+}
+
+.route-top-bar {
+  width: 100%;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.route-direction {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.clock {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .stops-content {
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.stops-line {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-right: 20px;
+  align-items: flex-start;
 }
 
-.stop-circle {
-  width: 20px;
-  height: 20px;
-  border: 3px solid black;
-  border-radius: 50%;
+.stop-item {
+  display: flex;
+  align-items: center;
   margin: 10px 0;
 }
 
-.stops-list {
-  text-align: left;
+.stop-circle {
+  width: 22px;
+  height: 22px;
+  border: 3px solid black;
+  border-radius: 50%;
+  margin-right: 12px;
 }
 
-.next-stop-label {
-  font-size: 18px;
-  margin-bottom: 5px;
+.stop-circle.next {
+  border-color: #000;
+  background-color: white;
 }
 
-.stop-name.big {
-  font-size: 32px;
-  font-weight: bold;
+.stop-circle.current {
+  border-color: #e53935;
+  background-color: #e53935;
+}
+
+.stop-circle.passed {
+  border-color: #999;
+  background-color: #999;
 }
 
 .stop-name {
-  font-size: 20px;
-  margin: 4px 0;
+  font-size: 22px;
 }
 
-.route-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff3cd;
-  color: black;
-  padding: 10px 20px;
-  border-radius: 12px;
+.stop-name.next {
+  color: #000;
 }
 
-.destination-name {
-  font-size: 24px;
+.stop-name.current {
   font-weight: bold;
+  color: #e53935;
+  font-size: 26px;
 }
 
-.route-footer-number {
-  background: #ffeb3b;
-  padding: 6px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 24px;
+.stop-name.passed {
+  color: #999;
+  text-decoration: line-through;
 }
