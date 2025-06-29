@@ -50,18 +50,23 @@ const stops = [
 
 let currentIndex = 0;
 let intervalId = null;
+let isThisStop = false;
+
 function renderFixedStops() {
   const container = document.querySelector('.stops-content');
   container.innerHTML = "";
 
+  // Label for first row (next stop)
+  let label = isThisStop ? "This stop" : "Next stop";
+
   // Row 1: Next stop
-  if (currentIndex + 1 < stops.length) {
+  if (currentIndex < stops.length) {
     container.innerHTML += `
       <div class="stop-item">
         <div class="stop-circle next"></div>
         <div class="stop-name next">
-          <div class="stop-label">Next stop</div>
-          ${stops[currentIndex + 1]}
+          <div class="stop-label">${label}</div>
+          ${stops[currentIndex]}
         </div>
       </div>`;
   } else {
@@ -72,19 +77,7 @@ function renderFixedStops() {
       </div>`;
   }
 
-  // Row 2: This stop
-  if (currentIndex < stops.length) {
-    container.innerHTML += `
-      <div class="stop-item">
-        <div class="stop-circle current"></div>
-        <div class="stop-name current">
-          <div class="stop-label">This stop</div>
-          ${stops[currentIndex]}
-        </div>
-      </div>`;
-  }
-
-  // Row 3: Last stop
+  // Row 2: Previous stop
   const passedIndex = currentIndex - 1;
   if (passedIndex >= 0) {
     container.innerHTML += `
@@ -101,19 +94,28 @@ function renderFixedStops() {
   }
 }
 
-
-
 function startAnimation() {
   currentIndex = 0;
+  isThisStop = false;
   renderFixedStops();
   if (intervalId) clearInterval(intervalId);
 
   intervalId = setInterval(() => {
-    currentIndex++;
-    if (currentIndex >= stops.length) {
-      clearInterval(intervalId);
-    } else {
-      renderFixedStops();
-    }
+    // Step 1: Show "This stop" for current stop for 2 seconds
+    isThisStop = true;
+    renderFixedStops();
+
+    setTimeout(() => {
+      // Step 2: After 2 seconds, move to next stop
+      isThisStop = false;
+      currentIndex++;
+
+      if (currentIndex >= stops.length) {
+        clearInterval(intervalId);
+      } else {
+        renderFixedStops();
+      }
+    }, 2000);
+
   }, 10000); // every 10 seconds
 }
