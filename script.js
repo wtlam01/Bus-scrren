@@ -50,40 +50,62 @@ const stops = [
 
 let currentIndex = 0;
 let intervalId = null;
-
-function renderStops() {
+function renderFixedStops() {
   const container = document.querySelector('.stops-content');
-  container.innerHTML = ""; // Clear
+  container.innerHTML = "";
 
-  // Next stop (if exists)
+  // Row 1: Next stop
   if (currentIndex + 1 < stops.length) {
     container.innerHTML += `
       <div class="stop-item">
         <div class="stop-circle next"></div>
-        <div class="stop-name next">${stops[currentIndex + 1]}</div>
+        <div class="stop-name next">
+          <div class="stop-label">Next stop</div>
+          ${stops[currentIndex + 1]}
+        </div>
+      </div>`;
+  } else {
+    container.innerHTML += `
+      <div class="stop-item">
+        <div class="stop-circle empty"></div>
+        <div class="stop-name empty"></div>
       </div>`;
   }
 
-  // Current stop
-  container.innerHTML += `
-    <div class="stop-item">
-      <div class="stop-circle current"></div>
-      <div class="stop-name current">${stops[currentIndex]}</div>
-    </div>`;
+  // Row 2: This stop
+  if (currentIndex < stops.length) {
+    container.innerHTML += `
+      <div class="stop-item">
+        <div class="stop-circle current"></div>
+        <div class="stop-name current">
+          <div class="stop-label">This stop</div>
+          ${stops[currentIndex]}
+        </div>
+      </div>`;
+  }
 
-  // Passed stops
-  for (let i = currentIndex - 1; i >= 0; i--) {
+  // Row 3: Last stop
+  const passedIndex = currentIndex - 1;
+  if (passedIndex >= 0) {
     container.innerHTML += `
       <div class="stop-item">
         <div class="stop-circle passed"></div>
-        <div class="stop-name passed">${stops[i]}</div>
+        <div class="stop-name passed">${stops[passedIndex]}</div>
+      </div>`;
+  } else {
+    container.innerHTML += `
+      <div class="stop-item">
+        <div class="stop-circle empty"></div>
+        <div class="stop-name empty"></div>
       </div>`;
   }
 }
 
+
+
 function startAnimation() {
   currentIndex = 0;
-  renderStops();
+  renderFixedStops();
   if (intervalId) clearInterval(intervalId);
 
   intervalId = setInterval(() => {
@@ -91,7 +113,7 @@ function startAnimation() {
     if (currentIndex >= stops.length) {
       clearInterval(intervalId);
     } else {
-      renderStops();
+      renderFixedStops();
     }
-  }, 10000); // Change every 10 seconds
+  }, 10000); // every 10 seconds
 }
