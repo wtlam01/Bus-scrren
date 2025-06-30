@@ -58,18 +58,18 @@ function renderFixedStops() {
   container.innerHTML = "";
 
   const passedIndex = currentIndex - 1;
-  container.innerHTML += createStopItem("", stops[passedIndex] ?? "", "passed");
+  container.innerHTML += createStopItem("", stops[passedIndex] ?? "", "passed", "row1");
 
   let label = isThisStop ? "This stop" : "Next stop";
-  container.innerHTML += createStopItem(label, stops[currentIndex] ?? "", "current");
+  container.innerHTML += createStopItem(label, stops[currentIndex] ?? "", "current", "row2");
 
-  container.innerHTML += createStopItem("", stops[currentIndex + 1] ?? "", "next");
-  container.innerHTML += createStopItem("", stops[currentIndex + 2] ?? "", "next");
+  container.innerHTML += createStopItem("", stops[currentIndex + 1] ?? "", "next", "row3");
+  container.innerHTML += createStopItem("", stops[currentIndex + 2] ?? "", "next", "row4");
 }
 
-function createStopItem(label, name, status) {
+function createStopItem(label, name, status, rowClass) {
   return `
-    <div class="stop-item">
+    <div class="stop-item ${rowClass}">
       <div class="stop-circle ${status}"></div>
       <div class="stop-text">
         ${label ? `<div class="stop-label">${label}</div>` : ""}
@@ -77,6 +77,7 @@ function createStopItem(label, name, status) {
       </div>
     </div>`;
 }
+
 
 
 function startAnimation() {

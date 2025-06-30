@@ -206,3 +206,28 @@ body {
   font-weight: bold;
 }
 
+.stop-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Default tight spacing for all */
+.stop-item {
+  margin: 12px 0;
+}
+
+/* Row 2: big space above and below */
+.stop-item.row2 {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/* Row 3 & 4: tighter spacing between them */
+.stop-item.row3 {
+  margin-bottom: 6px;
+}
+
+.stop-item.row4 {
+  margin-top: 6px;
+}
