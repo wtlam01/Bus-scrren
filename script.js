@@ -24,7 +24,6 @@ function showRoute() {
   document.getElementById('standardScreen').style.display = 'none';
   document.getElementById('journeyScreen').style.display = 'none';
   document.getElementById('routeScreen').style.display = 'block';
-
   startAnimation();
 }
 
@@ -45,7 +44,9 @@ const stops = [
   "1. The Mill",
   "2. Barnwell Turn",
   "3. The Fox Inn, Thorpe Waterville",
-  "4. Highfield Road, Thrapston"
+  "4. Highfield Road, Thrapston",
+  "5. xxxxxxx",
+  "6. Final Stop"
 ];
 
 let currentIndex = 0;
@@ -56,43 +57,27 @@ function renderFixedStops() {
   const container = document.querySelector('.stops-content');
   container.innerHTML = "";
 
-  // Label for first row (next stop)
-  let label = isThisStop ? "This stop" : "Next stop";
-
-  // Row 1: Next stop
-  if (currentIndex < stops.length) {
-    container.innerHTML += `
-      <div class="stop-item">
-        <div class="stop-circle next"></div>
-        <div class="stop-name next">
-          <div class="stop-label">${label}</div>
-          ${stops[currentIndex]}
-        </div>
-      </div>`;
-  } else {
-    container.innerHTML += `
-      <div class="stop-item">
-        <div class="stop-circle empty"></div>
-        <div class="stop-name empty"></div>
-      </div>`;
-  }
-
-  // Row 2: Previous stop
   const passedIndex = currentIndex - 1;
-  if (passedIndex >= 0) {
-    container.innerHTML += `
-      <div class="stop-item">
-        <div class="stop-circle passed"></div>
-        <div class="stop-name passed">${stops[passedIndex]}</div>
-      </div>`;
-  } else {
-    container.innerHTML += `
-      <div class="stop-item">
-        <div class="stop-circle empty"></div>
-        <div class="stop-name empty"></div>
-      </div>`;
-  }
+  container.innerHTML += createStopItem("", stops[passedIndex] ?? "", "passed");
+
+  let label = isThisStop ? "This stop" : "Next stop";
+  container.innerHTML += createStopItem(label, stops[currentIndex] ?? "", "current");
+
+  container.innerHTML += createStopItem("", stops[currentIndex + 1] ?? "", "next");
+  container.innerHTML += createStopItem("", stops[currentIndex + 2] ?? "", "next");
 }
+
+function createStopItem(label, name, status) {
+  return `
+    <div class="stop-item">
+      <div class="stop-circle ${status}"></div>
+      <div class="stop-text">
+        ${label ? `<div class="stop-label">${label}</div>` : ""}
+        <div class="stop-name ${status}">${name}</div>
+      </div>
+    </div>`;
+}
+
 
 function startAnimation() {
   currentIndex = 0;
@@ -101,15 +86,12 @@ function startAnimation() {
   if (intervalId) clearInterval(intervalId);
 
   intervalId = setInterval(() => {
-    // Step 1: Show "This stop" for current stop for 2 seconds
     isThisStop = true;
     renderFixedStops();
 
     setTimeout(() => {
-      // Step 2: After 2 seconds, move to next stop
       isThisStop = false;
       currentIndex++;
-
       if (currentIndex >= stops.length) {
         clearInterval(intervalId);
       } else {
@@ -117,5 +99,5 @@ function startAnimation() {
       }
     }, 2000);
 
-  }, 10000); // every 10 seconds
+  }, 10000);
 }
