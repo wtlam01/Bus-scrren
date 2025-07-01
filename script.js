@@ -102,3 +102,15 @@ function startAnimation() {
 
   }, 10000);
 }
+
+function renderFixedStops() {
+  const container = document.querySelector('.stops-content');
+  container.innerHTML = `
+    <div class="stops-line">
+      ${createStopItem("", stops[currentIndex - 1] ?? "", "passed", "row1")}
+      ${createStopItem(isThisStop ? "This stop" : "Next stop", stops[currentIndex] ?? "", "current", "row2")}
+      ${createStopItem("", stops[currentIndex + 1] ?? "", "next", "row3")}
+      ${createStopItem("", stops[currentIndex + 2] ?? "", "next", "row4")}
+    </div>
+  `;
+}

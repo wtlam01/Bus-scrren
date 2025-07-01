@@ -231,3 +231,29 @@ body {
 .stop-item.row4 {
   margin-top: 6px;
 }
+
+.stops-line {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stops-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 14px; /* adjust to align with your circles */
+  width: 10px; /* ← increase this value to make it thicker */
+  background-color: black;
+  z-index: 0;
+}
+
+.stop-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  z-index: 1; /* make sure the circle stays above the line */
+}
