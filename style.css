@@ -244,7 +244,7 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 14px; /* adjust to align with your circles */
+  left: 15px; /* adjust to align with your circles */
   width: 10px; /* ← increase this value to make it thicker */
   background-color: black;
   z-index: 0;
