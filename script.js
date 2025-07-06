@@ -41,44 +41,44 @@ setInterval(updateClock, 1000);
 updateClock();
 
 const stops = [
-  "1. The Mill",
-  "2. Barnwell Turn",
-  "3. The Fox Inn, Thorpe Waterville",
-  "4. Highfield Road, Thrapston",
-  "5. xxxxxxx",
-  "6. Final Stop"
+  { name: "The Mill", area: "" },
+  { name: "Barnwell Turn", area: "" },
+  { name: "The Fox Inn", area: "Thorpe Waterville" },
+  { name: "Highfield Road", area: "Thrapston" },
+  { name: "xxxxxxx", area: "" },
+  { name: "Final Stop", area: "" }
 ];
 
 let currentIndex = 0;
 let intervalId = null;
 let isThisStop = false;
 
-function renderFixedStops() {
-  const container = document.querySelector('.stops-content');
-  container.innerHTML = "";
-
-  const passedIndex = currentIndex - 1;
-  container.innerHTML += createStopItem("", stops[passedIndex] ?? "", "passed", "row1");
-
-  let label = isThisStop ? "This stop" : "Next stop";
-  container.innerHTML += createStopItem(label, stops[currentIndex] ?? "", "current", "row2");
-
-  container.innerHTML += createStopItem("", stops[currentIndex + 1] ?? "", "next", "row3");
-  container.innerHTML += createStopItem("", stops[currentIndex + 2] ?? "", "next", "row4");
-}
-
-function createStopItem(label, name, status, rowClass) {
+function createStopItem(label, stop, status, rowClass) {
+  let areaHtml = "";
+  if (status === "current" && stop.area) {
+    areaHtml = `<div class="stop-area">${stop.area}</div>`;
+  }
   return `
     <div class="stop-item ${rowClass}">
       <div class="stop-circle ${status}"></div>
       <div class="stop-text">
         ${label ? `<div class="stop-label">${label}</div>` : ""}
-        <div class="stop-name ${status}">${name}</div>
+        <div class="stop-name ${status}">${stop.name}${areaHtml}</div>
       </div>
     </div>`;
 }
 
-
+function renderFixedStops() {
+  const container = document.querySelector('.stops-content');
+  container.innerHTML = `
+    <div class="stops-line">
+      ${createStopItem("", stops[currentIndex - 1] ?? { name: "", area: "" }, "passed", "row1")}
+      ${createStopItem(isThisStop ? "This stop" : "Next stop", stops[currentIndex] ?? { name: "", area: "" }, "current", "row2")}
+      ${createStopItem("", stops[currentIndex + 1] ?? { name: "", area: "" }, "next", "row3")}
+      ${createStopItem("", stops[currentIndex + 2] ?? { name: "", area: "" }, "next", "row4")}
+    </div>
+  `;
+}
 
 function startAnimation() {
   currentIndex = 0;
@@ -103,14 +103,10 @@ function startAnimation() {
   }, 10000);
 }
 
-function renderFixedStops() {
-  const container = document.querySelector('.stops-content');
-  container.innerHTML = `
-    <div class="stops-line">
-      ${createStopItem("", stops[currentIndex - 1] ?? "", "passed", "row1")}
-      ${createStopItem(isThisStop ? "This stop" : "Next stop", stops[currentIndex] ?? "", "current", "row2")}
-      ${createStopItem("", stops[currentIndex + 1] ?? "", "next", "row3")}
-      ${createStopItem("", stops[currentIndex + 2] ?? "", "next", "row4")}
-    </div>
-  `;
+function showHandrail() {
+  document.getElementById('startupScreen').style.display = 'none';
+  document.getElementById('standardScreen').style.display = 'none';
+  document.getElementById('journeyScreen').style.display = 'none';
+  document.getElementById('routeScreen').style.display = 'none';
+  document.getElementById('handrailScreen').style.display = 'block';
 }

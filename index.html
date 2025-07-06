@@ -12,6 +12,7 @@
     <button class="screen-button" onclick="showStandard()">Standard Layout</button>
     <button class="screen-button" onclick="showJourney()">Route Announcement</button>
     <button class="screen-button" onclick="showRoute()">Route Stops</button>
+    <button class="screen-button" onclick="showHandrail()">Handrail</button>
   </div>
 
   <!-- Start-up Screen -->
@@ -47,13 +48,30 @@
   <!-- Route Stops Screen -->
   <div class="route-screen" id="routeScreen" style="display: none;">
     <div class="screen-box white-bg route-box top-start">
-       <div class="clock" id="clock"></div>
+      <div class="clock" id="clock"></div>
       <div class="stops-content"></div>
       <div class="route-bottom-bar">
         <div class="route-direction">Rushden Lakes</div>
         <div class="route-number-bottom">94</div>
       </div>
     </div>
+  </div>
+
+    <!-- Handrail Screen -->
+  <div class="handrail-screen" id="handrailScreen" style="display: none;">
+    <div class="screen-box white-bg">
+  <div class="flex-center-wrapper">
+    <div class="warning-box">
+      <span class="warning-icon">❗</span>
+      <span class="warning-text">Please hold the handrails</span>
+    </div>
+  </div>
+  <div class="route-bottom-bar">
+    <div class="route-direction">Rushden Lakes</div>
+    <div class="route-number-bottom">94</div>
+  </div>
+</div>
+
   </div>
 
   <script src="script.js"></script>

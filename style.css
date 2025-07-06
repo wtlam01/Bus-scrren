@@ -42,7 +42,6 @@ body {
   box-sizing: border-box;
 }
 
-
 .top-start {
   justify-content: flex-start;
   align-items: flex-start;
@@ -64,29 +63,19 @@ body {
   margin-bottom: 20px;
 }
 
-.corner-logo {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 120px;
-  opacity: 0.9;
-}
-
 .route-bottom-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Push contents to left and right */
+  justify-content: space-between;
   background: #fff3cd;
   color: black;
-  width: 100%; /* Full width */
+  width: 100%;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 12px 24px;
   box-sizing: border-box;
   margin-top: auto;
 }
-
-
 
 .route-number-bottom {
   background: #ffd24c;
@@ -100,22 +89,18 @@ body {
   justify-content: center;
 }
 
-
-
 .route-direction {
   font-size: 52px;
   font-weight: bold;
 }
 
-
 .clock {
   position: absolute;
   top: 20px;
-  right: 20px;
-  font-size: 30px;
+  right: 30px;
+  font-size: 42px;
   font-weight: bold;
 }
-
 
 .stops-content {
   display: flex;
@@ -128,10 +113,22 @@ body {
 .stop-item {
   display: flex;
   align-items: center;
-  margin: 24px 0;
+  margin: 12px 0;
   width: 100%;
 }
 
+.stop-item.row2 {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.stop-item.row3 {
+  margin-bottom: 6px;
+}
+
+.stop-item.row4 {
+  margin-top: 6px;
+}
 
 .stop-circle {
   width: 30px;
@@ -140,9 +137,6 @@ body {
   border-radius: 50%;
   margin-right: 16px;
 }
-
-
-
 
 .stop-circle.next {
   border-color: #000;
@@ -162,28 +156,23 @@ body {
 .stop-name {
   font-size: 65px;
   font-weight: normal;
-  white-space: nowrap; /* Prevent wrapping to next line */
+  white-space: nowrap;
 }
 
 .stop-name.current {
-  font-weight: bold; /* Only bold for current (second row) */
+  font-weight: bold;
   color: #e53935;
 }
 
 .stop-name.next {
   color: #000;
-    font-size: 52px;
+  font-size: 52px;
 }
 
 .stop-name.passed {
   color: #999;
-  font-size: 52px;
+  font-size: 38px;
 }
-
-.stop-name.empty {
-  visibility: hidden;
-}
-
 
 .stop-label {
   font-size: 32px;
@@ -196,40 +185,10 @@ body {
   flex-direction: column;
 }
 
-
-
-.clock {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 42px;
-  font-weight: bold;
-}
-
-.stop-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-/* Default tight spacing for all */
-.stop-item {
-  margin: 12px 0;
-}
-
-/* Row 2: big space above and below */
-.stop-item.row2 {
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-
-/* Row 3 & 4: tighter spacing between them */
-.stop-item.row3 {
-  margin-bottom: 6px;
-}
-
-.stop-item.row4 {
-  margin-top: 6px;
+.stop-area {
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 1.2;
 }
 
 .stops-line {
@@ -244,16 +203,58 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 15px; /* adjust to align with your circles */
-  width: 10px; /* ← increase this value to make it thicker */
+  left: 15px;
+  width: 10px;
   background-color: black;
   z-index: 0;
 }
 
 .stop-item {
   position: relative;
+  z-index: 1;
+}
+
+ /* <!-- Handrail Screen --> */
+.handrail-screen .screen-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.warning-box {
+  background: #eee;
+  border: 2px solid #999;
+  padding: 40px 80px; /* ← Increase padding */
   display: flex;
   align-items: center;
+  font-size: 60px; /* ← Increase font size */
+  font-weight: bold;
+  min-width: 600px; /* ← Optional: set a minimum width */
+}
+
+
+.flex-center-wrapper {
+  flex: 1; /* take remaining vertical space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  z-index: 1; /* make sure the circle stays above the line */
+}
+
+.handrail-screen .route-bottom-bar {
+  margin-top: auto;
+  width: 100%;
+}
+
+
+.warning-icon {
+  color: red;
+  margin-right: 20px;
+}
+
+.warning-text {
+  color: black;
 }
