@@ -58,14 +58,15 @@ function createStopItem(label, stop, status, rowClass) {
   if (status === "current" && stop.area) {
     areaHtml = `<div class="stop-area">${stop.area}</div>`;
   }
-  return `
-    <div class="stop-item ${rowClass}">
-      <div class="stop-circle ${status}"></div>
-      <div class="stop-text">
-        ${label ? `<div class="stop-label">${label}</div>` : ""}
-        <div class="stop-name ${status}">${stop.name}${areaHtml}</div>
-      </div>
-    </div>`;
+return `
+  <div class="stop-item ${rowClass}">
+    <div class="stop-circle ${status}"></div>
+    <div class="stop-text">
+      ${label ? `<div class="stop-label">${label}</div>` : ""}
+      <div class="stop-name ${status}">${stop.name || "Previous Stop"}${areaHtml}</div>
+    </div>
+  </div>`;
+
 }
 
 function renderFixedStops() {
