@@ -111,3 +111,12 @@ function showHandrail() {
   document.getElementById('routeScreen').style.display = 'none';
   document.getElementById('handrailScreen').style.display = 'block';
 }
+
+function showWelcome() {
+  document.getElementById('startupScreen').style.display = 'none';
+  document.getElementById('standardScreen').style.display = 'none';
+  document.getElementById('journeyScreen').style.display = 'none';
+  document.getElementById('routeScreen').style.display = 'none';
+  document.getElementById('handrailScreen').style.display = 'none';
+  document.getElementById('welcomeScreen').style.display = 'block';
+}

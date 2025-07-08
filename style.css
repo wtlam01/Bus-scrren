@@ -237,12 +237,13 @@ body {
 
 
 .flex-center-wrapper {
-  flex: 1; /* take remaining vertical space */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
+
 
 .handrail-screen .route-bottom-bar {
   margin-top: auto;
@@ -257,4 +258,22 @@ body {
 
 .warning-text {
   color: black;
+}
+
+.welcome-rect {
+  background-color: #333; /* dark grey */
+  color: white;
+  padding: 120px 140px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.welcome-rect h1 {
+  font-size: 72px;
+  margin: 0 0 20px;
+}
+
+.welcome-rect p {
+  font-size: 48px;
+  margin: 0;
 }

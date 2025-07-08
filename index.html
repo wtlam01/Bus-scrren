@@ -13,6 +13,8 @@
     <button class="screen-button" onclick="showJourney()">Route Announcement</button>
     <button class="screen-button" onclick="showRoute()">Route Stops</button>
     <button class="screen-button" onclick="showHandrail()">Handrail</button>
+    <button class="screen-button" onclick="showWelcome()">Welcome</button>
+
   </div>
 
   <!-- Start-up Screen -->
@@ -57,22 +59,40 @@
     </div>
   </div>
 
-    <!-- Handrail Screen -->
-  <div class="handrail-screen" id="handrailScreen" style="display: none;">
-    <div class="screen-box white-bg">
-  <div class="flex-center-wrapper">
-    <div class="warning-box">
-      <span class="warning-icon">❗</span>
-      <span class="warning-text">Please hold the handrails</span>
+<!-- Handrail Screen -->
+<div class="handrail-screen" id="handrailScreen" style="display: none;">
+  <div class="screen-box white-bg route-box top-start">
+    <div class="flex-center-wrapper">
+      <div class="warning-box">
+        <span class="warning-icon">❗</span>
+        <span class="warning-text">Please hold the handrails</span>
+      </div>
     </div>
-  </div>
-  <div class="route-bottom-bar">
-    <div class="route-direction">Rushden Lakes</div>
-    <div class="route-number-bottom">94</div>
+    <div class="route-bottom-bar">
+      <div class="route-direction">Rushden Lakes</div>
+      <div class="route-number-bottom">94</div>
+    </div>
   </div>
 </div>
 
+<!-- Welcome Screen -->
+<div class="welcome-screen" id="welcomeScreen" style="display: none;">
+  <div class="screen-box white-bg route-box top-start">
+    <div class="flex-center-wrapper">
+      <div class="welcome-rect">
+        <h1>Welcome Screen</h1>
+        <p>jpeg supplied by customer</p>
+      </div>
+    </div>
+    <div class="route-bottom-bar">
+      <div class="route-direction">Rushden Lakes</div>
+      <div class="route-number-bottom">94</div>
+    </div>
   </div>
+</div>
+
+
+
 
   <script src="script.js"></script>
 </body>
