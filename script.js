@@ -3,6 +3,8 @@ function showStartup() {
   document.getElementById('standardScreen').style.display = 'none';
   document.getElementById('journeyScreen').style.display = 'none';
   document.getElementById('routeScreen').style.display = 'none';
+  document.getElementById('handrailScreen').style.display = 'none';
+  document.getElementById('welcomeScreen').style.display = 'none';
 }
 
 function showStandard() {
@@ -10,6 +12,8 @@ function showStandard() {
   document.getElementById('standardScreen').style.display = 'block';
   document.getElementById('journeyScreen').style.display = 'none';
   document.getElementById('routeScreen').style.display = 'none';
+  document.getElementById('handrailScreen').style.display = 'none';
+  document.getElementById('welcomeScreen').style.display = 'none';
 }
 
 function showJourney() {
@@ -17,6 +21,8 @@ function showJourney() {
   document.getElementById('standardScreen').style.display = 'none';
   document.getElementById('journeyScreen').style.display = 'block';
   document.getElementById('routeScreen').style.display = 'none';
+  document.getElementById('handrailScreen').style.display = 'none';
+  document.getElementById('welcomeScreen').style.display = 'none';
 }
 
 function showRoute() {
@@ -24,6 +30,8 @@ function showRoute() {
   document.getElementById('standardScreen').style.display = 'none';
   document.getElementById('journeyScreen').style.display = 'none';
   document.getElementById('routeScreen').style.display = 'block';
+  document.getElementById('handrailScreen').style.display = 'none';
+  document.getElementById('welcomeScreen').style.display = 'none';
   startAnimation();
 }
 
