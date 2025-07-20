@@ -70,6 +70,7 @@ return `
 }
 
 function renderFixedStops() {
+  
   const container = document.querySelector('.stops-content');
   container.innerHTML = `
     <div class="stops-line">

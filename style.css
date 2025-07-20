@@ -111,31 +111,61 @@ body {
 }
 
 .stop-item {
-  display: flex;
-  align-items: center;
-  margin: 12px 0;
+  position: relative;
+  z-index: 1;
+  padding-left: 80px;
+  margin: 24px 0;
   width: 100%;
 }
 
-.stop-item.row2 {
-  margin-top: 60px;
-  margin-bottom: 60px;
+.stops-line {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.stop-item.row3 {
-  margin-bottom: 6px;
+/* Solid line from top to below 4th circle */
+.stops-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 35px;
+  width: 8px;
+  height: 460px; /* 4 circles × approx 108px spacing */
+  background-color: black;
+  z-index: 0;
 }
 
-.stop-item.row4 {
-  margin-top: 6px;
+/* Dashed line starting below the 4th circle */
+.stops-line::after {
+  content: "";
+  position: absolute;
+  top: 460px;
+  left: 35px;
+  width: 8px;
+  height: calc(100% - 452px);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    black,
+    black 12px,
+    transparent 12px,
+    transparent 24px
+  );
+  z-index: 0;
 }
+
 
 .stop-circle {
+  position: absolute;
+  left: 20px;  /* ← move this left */
+  top: 50%;
+  transform: translateY(-50%);
   width: 30px;
   height: 30px;
   border: 4px solid black;
   border-radius: 50%;
-  margin-right: 16px;
+  background-color: white;
 }
 
 .stop-circle.next {
@@ -191,30 +221,7 @@ body {
   line-height: 1.2;
 }
 
-.stops-line {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.stops-line::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 15px;
-  width: 10px;
-  background-color: black;
-  z-index: 0;
-}
-
-.stop-item {
-  position: relative;
-  z-index: 1;
-}
-
- /* <!-- Handrail Screen --> */
+/* Handrail Screen */
 .handrail-screen .screen-box {
   display: flex;
   flex-direction: column;
@@ -227,29 +234,13 @@ body {
 .warning-box {
   background: #eee;
   border: 2px solid #999;
-  padding: 40px 80px; /* ← Increase padding */
+  padding: 40px 80px;
   display: flex;
   align-items: center;
-  font-size: 60px; /* ← Increase font size */
+  font-size: 60px;
   font-weight: bold;
-  min-width: 600px; /* ← Optional: set a minimum width */
+  min-width: 600px;
 }
-
-
-.flex-center-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-
-.handrail-screen .route-bottom-bar {
-  margin-top: auto;
-  width: 100%;
-}
-
 
 .warning-icon {
   color: red;
@@ -260,8 +251,22 @@ body {
   color: black;
 }
 
+.flex-center-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.handrail-screen .route-bottom-bar {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Welcome Rect on Welcome Screen */
 .welcome-rect {
-  background-color: #333; /* dark grey */
+  background-color: #333;
   color: white;
   padding: 120px 140px;
   border-radius: 16px;
