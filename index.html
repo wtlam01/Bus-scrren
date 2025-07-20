@@ -59,21 +59,56 @@
     </div>
   </div>
 
+
+  
 <!-- Handrail Screen -->
 <div class="handrail-screen" id="handrailScreen" style="display: none;">
-  <div class="screen-box white-bg route-box top-start">
-    <div class="flex-center-wrapper">
-      <div class="warning-box">
-        <span class="warning-icon">❗</span>
-        <span class="warning-text">Please hold the handrails</span>
+  <div class="screen-box white-bg route-box top-start" style="position: relative;">
+    
+    <!-- 時鐘 -->
+    <div class="clock" id="clock-handrail">12:00</div>
+    
+    <!-- Stops (固定兩個) -->
+    <div class="stops-content">
+      <div class="stops-line">
+        <!-- 上一站 -->
+        <div class="stop-item">
+          <div class="stop-circle passed"></div>
+          <div class="stop-text">
+            <div class="stop-label">Previous stop</div>
+            <div class="stop-name passed">The Fox Inn</div>
+          </div>
+        </div>
+
+        <!-- 這一站 -->
+        <div class="stop-item">
+          <div class="stop-circle current"></div>
+          <div class="stop-text">
+            <div class="stop-label">This stop</div>
+            <div class="stop-name current">Highfield Road</div>
+            <div class="stop-area">Thrapston</div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Warning Box (絕對定位浮中間) -->
+    <div class="warning-box-floating">
+      <span class="warning-icon">❗</span>
+      <span class="warning-text">Please hold the handrails</span>
+    </div>
+
+    <!-- 底部 -->
     <div class="route-bottom-bar">
       <div class="route-direction">Rushden Lakes</div>
       <div class="route-number-bottom">94</div>
     </div>
   </div>
 </div>
+
+
+
+
 
 <!-- Welcome Screen -->
 <div class="welcome-screen" id="welcomeScreen" style="display: none;">

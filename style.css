@@ -225,11 +225,12 @@ body {
 .handrail-screen .screen-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;  /* ← 重要 */
   align-items: center;
   height: 100%;
   position: relative;
 }
+
 
 .warning-box {
   background: #eee;
@@ -239,18 +240,44 @@ body {
   align-items: center;
   font-size: 60px;
   font-weight: bold;
-  min-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+.warning-box-floating {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 40%);
+  background: #eee;
+  border: 2px solid #999;
+  padding: 20px 140px; /* 減少左右 padding，避免撐太大 */
+  font-size: 60px;
+  font-weight: bold;
+  display: inline-flex; /* ✅ 改成 inline-flex */
+  white-space: nowrap;  /* ✅ 防止換行 */
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  z-index: 10;
+  box-sizing: border-box;
+
+  /* 如果你想固定寬度，也可加上這行 */
+  /* width: fit-content; */
+}
+
+
 
 .warning-icon {
   color: red;
   margin-right: 20px;
 }
 
+
 .warning-text {
   color: black;
 }
-
+/* 
 .flex-center-wrapper {
   flex: 1;
   display: flex;
@@ -262,14 +289,23 @@ body {
 .handrail-screen .route-bottom-bar {
   margin-top: auto;
   width: 100%;
+} */
+
+.stop-warning {
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  margin: 40px 0;
 }
+
+
 
 /* Welcome Rect on Welcome Screen */
 .welcome-rect {
   background-color: #333;
   color: white;
-  padding: 120px 140px;
-  border-radius: 16px;
+  padding: 120px 360px;
+  border-radius: 15px;
   text-align: center;
 }
 
@@ -282,3 +318,6 @@ body {
   font-size: 48px;
   margin: 0;
 }
+
+
+

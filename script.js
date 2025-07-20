@@ -121,3 +121,4 @@ function showWelcome() {
   document.getElementById('handrailScreen').style.display = 'none';
   document.getElementById('welcomeScreen').style.display = 'block';
 }
+
